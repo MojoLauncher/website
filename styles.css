@@ -177,6 +177,7 @@ h1, h2, h3 {
 .icon-button:hover { background: var(--ripple); }
 
 .icon-button__logo {
+  pointer-events: none;
   width: 26px;
   height: 26px;
 }
@@ -309,7 +310,12 @@ h1, h2, h3 {
   background: var(--bg-status-bar);
 }
 
-.card__icon { display: block; width: 30px; height: 30px; }
+.card__icon {
+  pointer-events: none;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
 
 .card h3 {
   margin-top: 14px;
@@ -603,6 +609,7 @@ h1, h2, h3 {
   .pref-item:hover { background: var(--ripple); }
 
   .pref-item__icon {
+    pointer-events: none;
     flex: none;
     width: 28px;
     height: 28px;
@@ -619,6 +626,7 @@ h1, h2, h3 {
   }
 
   .pref-item__chevron {
+    pointer-events: none;
     flex: none;
     width: 20px;
     height: 20px;
