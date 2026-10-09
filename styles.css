@@ -551,7 +551,7 @@ h1, h2, h3 {
   .topbar .lang { display: none; }
 
   .sidebar {
-    display: flex;
+    display: none;
     position: fixed;
     top: 52px;
     right: 0;
@@ -566,7 +566,10 @@ h1, h2, h3 {
     z-index: 40;
   }
 
-  .sidebar.is-open { transform: translateY(0); }
+  .sidebar.is-open {
+    display: flex;
+    transform: translateY(0);
+  }
 
   .sidebar__content {
     display: flex;
