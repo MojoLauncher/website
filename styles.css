@@ -57,7 +57,7 @@ h1, h2, h3 {
   align-items: center;
   gap: 12px;
   height: 52px;
-  padding-right: 4px;
+  padding-inline-end: 4px; /* edited <---- */
   background: var(--bg-status-bar);
   border-bottom: 2px solid var(--accent); /* login progress line */
 }
@@ -67,7 +67,8 @@ h1, h2, h3 {
   align-items: center;
   gap: 10px;
   height: 100%;
-  padding: 0 14px 0 10px;
+  padding: 0;
+  padding-inline: 10px 14px; /* edited <---- */
 }
 
 .brand__logo {
@@ -87,7 +88,7 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   height: 100%;
-  margin-left: 6px;
+  margin-inline-start: 6px; /* edited <---- */
   min-width: 0;
 }
 
@@ -111,14 +112,15 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   height: 100%;
-  margin-left: 12px;
+  margin-inline-start: 12px; /* edited <---- */
 }
 
 .lang__select {
   appearance: none;
   -webkit-appearance: none;
   height: 32px;
-  padding: 0 26px 0 12px;
+  padding: 0;
+  padding-inline: 12px 26px; /* edited <---- */
   border: 1px solid var(--divider);
   background: transparent;
   color: var(--text);
@@ -143,7 +145,7 @@ h1, h2, h3 {
 .lang::after {
   content: "";
   position: absolute;
-  right: 11px;
+  inset-inline-end: 11px; /* edited<---- */
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 5px solid var(--text-dim);
@@ -154,7 +156,7 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   height: 100%;
-  margin-left: auto;
+  margin-inline-start: auto; /* edited <---- */
 }
 
 .sidebar { display: none; }
@@ -183,7 +185,7 @@ h1, h2, h3 {
 
 .icon-button__flag {
   position: absolute;
-  right: 6px;
+  inset-inline-end: 6px; /* <---- */
   bottom: 6px;
   width: 16px;
   height: 11px;
@@ -242,6 +244,7 @@ h1, h2, h3 {
   margin: 16px 0 0;
   font-size: 16px;
   color: var(--text-dim);
+  white-space: pre-line; /* edited <---- */
 }
 
 .hero__actions {
@@ -345,8 +348,8 @@ h1, h2, h3 {
 
 .card .card__note {
   margin-top: 8px;
-  padding-left: 10px;
-  border-left: 2px solid var(--accent);
+  padding-inline-start: 10px; /* edited <---- */
+  border-inline-start: 2px solid var(--accent); /* edited <---- */
   font-size: 12px;
   color: var(--text-dim);
 }
@@ -399,7 +402,7 @@ h1, h2, h3 {
 
 .news__tag {
   display: inline-block;
-  margin-left: 8px;
+  margin-inline-start: 8px; /* edited<---- */
   padding: 1px 6px;
   border: 1px solid var(--divider);
   border-radius: 2px;
@@ -412,7 +415,7 @@ h1, h2, h3 {
 }
 
 .news__tag-note {
-  margin-left: 6px;
+  margin-inline-start: 6px; /* edited (note: this been tested and it breaks the arabic (do not change it)) <---- */
   color: var(--accent);
   letter-spacing: 0.5px;
 }
@@ -445,7 +448,7 @@ h1, h2, h3 {
 .downloads__badge {
   display: block;
   width: auto;
-  height: 54px; /* matches .btn height so the two buttons sit in-line */
+  height: 54px; /* edited */
 }
 
 .downloads__nightly-btn {
@@ -455,8 +458,8 @@ h1, h2, h3 {
 .downloads__warning {
   flex-basis: 100%;
   margin: 4px 0 0;
-  padding-left: 12px;
-  border-left: 3px solid var(--accent);
+  padding-inline-start: 12px; /* edited <---- */
+  border-inline-start: 3px solid var(--accent); /* edited (barflip) <---- */
   font-size: 12px;
   color: var(--text-dim);
 }
@@ -515,13 +518,14 @@ h1, h2, h3 {
 
 @media (max-width: 420px) {
   .icon-button { width: 40px; }
-  .lang { margin-left: 8px; }
+  .lang { margin-inline-start: 8px; } /* edited <---- */
   .lang__select {
     height: 28px;
-    padding: 0 20px 0 8px;
+    padding: 0;
+    padding-inline: 8px 20px; /* edited <---- */
     font-size: 12px;
   }
-  .lang::after { right: 8px; }
+  .lang::after { inset-inline-end: 8px; } /* edited<---- */
 }
 
 /* Fullscreen launcher preferences screen: only on mobile portrait */
@@ -532,7 +536,7 @@ h1, h2, h3 {
     justify-content: center;
     width: 52px;
     height: 52px;
-    margin-left: auto;
+    margin-inline-start: auto; /* edited <---- */
     padding: 4px;
     border: 0;
     background: transparent;
@@ -560,7 +564,7 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: stretch;
     height: auto;
-    margin-left: 0;
+    margin-inline-start: 0; /* edited <---- */
     background: var(--bg-app);
     transform: translateY(100%);
     z-index: 40;
@@ -627,7 +631,7 @@ h1, h2, h3 {
 
   .pref-item .lang {
     height: auto;
-    margin-left: 0;
+    margin-inline-start: 0; /* edited <----*/
     min-width: 0;
   }
 
@@ -637,3 +641,32 @@ h1, h2, h3 {
   }
 }
 
+/* i made sure to add all the newly added codes stay here so u won't have to worry about what i added :3 */
+/* makes sure it flips the page in mobile browser */
+[dir="rtl"] .pref-item__chevron { transform: scaleX(-1); }
+
+/* makes sure arabic space-lettering doesn't break anything*/
+:lang(ar) * { letter-spacing: normal; }
+
+/* english stay same but on top so arabic just do the rest u get the point ;p */
+:lang(ar) body {
+  font-family: Roboto, "Noto Sans Arabic", "Segoe UI", Tahoma, "Geeza Pro",
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.8;
+}
+
+:lang(ar) h1,
+:lang(ar) h2,
+:lang(ar) h3,
+:lang(ar) .brand__name,
+:lang(ar) .btn,
+:lang(ar) .news__title,
+:lang(ar) .pref-category {
+  font-family: "Noto Sans Bold", Roboto, "Noto Sans Arabic", "Segoe UI",
+    Tahoma, "Geeza Pro", sans-serif;
+}
+
+/* more space for arabic marks so it won't cut cuz of height */
+:lang(ar) h1,
+:lang(ar) h2,
+:lang(ar) h3 { line-height: 1.5; }

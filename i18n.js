@@ -7,6 +7,15 @@
   var STORAGE_KEY = "mojolauncher.lang";
   var selects = document.querySelectorAll(".lang__select");
 
+  // added this for for language that start from right to left
+  var RTL_LANGS = ["ar"];
+
+  // that function switch the <dir> to right to left <> left to right for style.css
+  function setDirection(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = RTL_LANGS.indexOf(lang) !== -1 ? "rtl" : "ltr";
+  }
+
   var supported = [];
   if (selects.length) {
     var options = selects[0].options;
@@ -70,7 +79,7 @@
   function apply(lang) {
     var dict = translations[lang] || {};
     currentLang = lang;
-    document.documentElement.lang = lang;
+    setDirection(lang);
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       var value = dict[key] != null ? dict[key] : defaults[key];
@@ -104,6 +113,8 @@
   });
 
   var initial = detectLang();
+  // sets direction
+  setDirection(initial);
   selects.forEach(function (sel) { sel.value = initial; });
   loadLocale(initial).then(function () { apply(initial); });
 })();
